@@ -33,6 +33,10 @@ jobs:
     steps:
       - name: Info
         run: echo "my workflow"
+      - name:init
+        bundle init
+      - name: install
+        run: bundle install
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Ruby
