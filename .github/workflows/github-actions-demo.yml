@@ -18,4 +18,5 @@ jobs:
       - run: ruby -v
       - run: gem -v
       - run: gem -h
+      - run: mogrify -help
       - run: echo "🍏 This job's status is ${{ job.status }}."
