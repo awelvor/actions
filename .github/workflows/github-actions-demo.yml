@@ -17,4 +17,5 @@ jobs:
           ls ${{ github.workspace }}
       - run: ruby -v
       - run: gem -v
+      - run: gem -h
       - run: echo "🍏 This job's status is ${{ job.status }}."
