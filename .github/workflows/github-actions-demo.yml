@@ -20,4 +20,4 @@ jobs:
       - run: gem -h
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: bash --version
-      - run: simple.sh
+      - run: bash simple.sh
