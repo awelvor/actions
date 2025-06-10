@@ -21,3 +21,4 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: bash --version
       - run: bash simple.sh
+      - run: bash bash/hello.sh
