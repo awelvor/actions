@@ -22,3 +22,4 @@ jobs:
       - run: bash --version
       - run: bash simple.sh
       - run: bash bash/hello.sh
+      - run: symfony check:requirements
