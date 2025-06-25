@@ -11,4 +11,4 @@ jobs:
           node-version: '20'
       - run: npm install -g bats
       - run: bats -v
-      - run: apt-get install imagemagick
+      - run: sudo apt-get install imagemagick
