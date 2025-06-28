@@ -1,0 +1,47 @@
+name: Redimensionner les images
+
+on:
+  pull_request:
+    paths:
+      - 'images/**.jpg'
+      - 'images/**.jpeg'
+      - 'images/**.png'
+  push:
+    branches:
+      - main # Ou votre branche principale si vous voulez que ça s'exécute aussi sur les pushs directs
+
+jobs:
+  resize:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Vérifier le dépôt
+      uses: actions/checkout@v4
+
+    - name: Installer ImageMagick
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y imagemagick
+
+    - name: Redimensionner les images avec Mogrify
+      id: resize-images
+      run: |
+        # Liste tous les fichiers d'images modifiés/ajoutés dans cette PR/push
+        # Adaptez cette commande pour cibler les fichiers pertinents si nécessaire
+        # Pour une PR, vous pouvez obtenir les fichiers modifiés via 'git diff --name-only origin/${{ github.base_ref }} ${{ github.sha }}'
+        # Pour un push, vous pouvez lister les fichiers dans le dossier
+        find images/ -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) -print0 | while IFS= read -r -d $'\0' file; do
+          echo "Traitement de l'image : $file"
+          # Utilise mogrify pour redimensionner si la largeur est supérieure à 800px
+          # Le '>', '<', '=' sont des opérateurs de géométrie dans ImageMagick
+          # '>': redimensionne seulement si l'image est plus grande
+          # '-strip': supprime les profils EXIF et de couleur pour réduire la taille du fichier
+          mogrify -resize '1200x>' -strip "$file"
+        done
+
+    - name: Committer les changements (si des images ont été redimensionnées)
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: 'Automated: Redimensionnement des images via GitHub Actions'
+        # Pour les PRs, vous pourriez vouloir que cela ne fasse pas de commit automatique directement sur la branche principale
+        # mais plutôt un commit sur la branche de la PR.
+        # Ajustez le comportement en fonction de votre workflow.
