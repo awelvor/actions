@@ -38,10 +38,4 @@ jobs:
           mogrify -resize '1200x>' -strip "$file"
         done
 
-    - name: Committer les changements (si des images ont été redimensionnées)
-      uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-        commit_message: 'Automated: Redimensionnement des images via GitHub Actions'
-        # Pour les PRs, vous pourriez vouloir que cela ne fasse pas de commit automatique directement sur la branche principale
-        # mais plutôt un commit sur la branche de la PR.
-        # Ajustez le comportement en fonction de votre workflow.
+   
