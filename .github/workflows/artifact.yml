@@ -1,4 +1,4 @@
-name: Convert Images and Upload
+name: Convert Images and Upload -2
 
 on:
   push:
