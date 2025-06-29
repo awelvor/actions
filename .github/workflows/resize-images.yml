@@ -31,6 +31,11 @@ jobs:
       run: ls -al images
     - name: ls dirout
       run: ls -al dirout
+    - name: Upload processed image as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: converted-image
+        path: dirout/input.jpg # Chemin vers le fichier spécifique
 
 
     - name: Redimensionner les images avec Mogrify
