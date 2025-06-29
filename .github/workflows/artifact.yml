@@ -1,0 +1,30 @@
+name: Convert Images and Upload
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install ImageMagick
+      run: sudo apt-get update && sudo apt-get install -y imagemagick
+
+    - name: Create output directory
+      run: mkdir -p output_images
+
+    - name: Convert and process single image
+      # Exemple: Convertit "input.jpg" en "output_images/output.png" et le redimensionne
+      run: convert images/input.jpg -resize 50% output_images/output.png
+
+    - name: Upload processed image as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: converted-image
+        path: output_images/output.png # Chemin vers le fichier spécifique
