@@ -23,7 +23,7 @@ jobs:
         sudo apt-get install -y imagemagick
         
     - name: mogrify
-      run: mogrify -resize 1200x1200 -path /dirout *.jpg
+      run: mogrify -resize 1200x1200 -path /dirout images/*.jpg
 
     - name: Redimensionner les images avec Mogrify
       id: resize-images
