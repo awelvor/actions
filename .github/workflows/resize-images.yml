@@ -21,12 +21,15 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y imagemagick
-        
+
+    - name: chmod
+      run: chmod 777 -R dirout
+
     - name: mogrify
       run: mogrify -resize 1200x1200  -path dirout images/*.jpg
     - name: ls -al images
       run: ls -al images
-    - name: ls rirout
+    - name: ls dirout
       run: ls -al dirout
 
 
