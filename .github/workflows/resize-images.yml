@@ -24,6 +24,10 @@ jobs:
         
     - name: mogrify
       run: mogrify -resize 1200x1200  -path dirout images/*.jpg
+    - name: ls -al images
+      run: ls -al images
+    - name: ls rirout
+      run: ls -al dirout
 
 
     - name: Redimensionner les images avec Mogrify
