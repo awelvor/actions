@@ -13,3 +13,4 @@ jobs:
       - run: bats -v
       - run: unzip images/come.zip
       - run: ls
+      - run: pwd
