@@ -1,5 +1,5 @@
 name: action.yml 2025-07-13
-run-name: ${{ github.actor }} is learning GitHub Actions
+run-name: ${{ github.actor }} is running action.yml
 on: [push]
 jobs:
   check-bats-version:
@@ -15,4 +15,4 @@ jobs:
       - run: ls
       - run: pwd
       - run: ls /home/runner/work/actions/actions
-      - run: ls /home/runner/work/euros/euros
+      
