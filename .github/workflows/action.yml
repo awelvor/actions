@@ -16,5 +16,6 @@ jobs:
       - run: pwd
       - run: ls /home/runner/work/actions/actions
       - run: sudo apt-get install -y imagemagick
+      - run: mogrify -version
     
       
