@@ -15,4 +15,7 @@ jobs:
       - run: ls
       - run: pwd
       - run: ls /home/runner/work/actions/actions
+      - name: Installer ImageMagick
+      - run:  sudo apt-get install -y imagemagick
+    
       
