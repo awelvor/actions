@@ -1,4 +1,4 @@
-o ymlname: learn-github-actions
+name: hello  yml
 run-name: ${{ github.actor }} is running hello
 on: [push]
 jobs:
