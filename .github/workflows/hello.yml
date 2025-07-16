@@ -2,7 +2,7 @@ name: hello  yml
 run-name: ${{ github.actor }} is running hello
 on: [push]
 jobs:
-  check-bats-version:
+  job-name:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
