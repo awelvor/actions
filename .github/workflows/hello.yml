@@ -1,5 +1,5 @@
-name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
+o ymlname: learn-github-actions
+run-name: ${{ github.actor }} is running hello
 on: [push]
 jobs:
   check-bats-version:
