@@ -1,0 +1,20 @@
+{
+  "name": "dirnode",
+  "version": "1.0.0",
+ 
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "linux": "node file.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "https": "^1.0.0",
+    "mysql": "^2.18.1"
+  }
+}
