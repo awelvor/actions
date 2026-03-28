@@ -1,0 +1,24 @@
+name: MYSQL CI2.1
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DAY_OF_WEEK: Tuesday
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      DB_DATABASE: test_db
+      DB_USER: root
+      DB_PASSWORD: root
+
+    steps:
+     
+      - name: Checkout code
+        uses: actions/checkout@v5
+      - run:  sudo /etc/init.d/mysql start
