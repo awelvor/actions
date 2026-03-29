@@ -22,6 +22,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
       - run: unzip sql/mydb803-20260318.sql.zip
+      - run: ls
       - run:  
           sudo /etc/init.d/mysql start
           mysql  -u$DB_USER -p$DB_PASSWORD -e "select now();"
