@@ -28,6 +28,6 @@ jobs:
           mysql  -u$DB_USER -p$DB_PASSWORD -e "select now();"
           mysql  -u$DB_USER -p$DB_PASSWORD -e "create database mydb803;"
           mysql  -u$DB_USER -p$DB_PASSWORD -e "show databases;"
-          mysql  -u$DB_USER -p$DB_PASSWORD mydb803 < sql/mydb803-20260318.sql
+          mysql  -u$DB_USER -p$DB_PASSWORD mydb803 < mydb803-20260318.sql
           mysql  -u$DB_USER -p$DB_PASSWORD -e "show tables;" mydb803
           mysql  -u$DB_USER -p$DB_PASSWORD -e "SELECT * FROM euros WHERE id=15000;" mydb803
