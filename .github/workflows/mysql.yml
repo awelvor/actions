@@ -21,4 +21,12 @@ jobs:
      
       - name: Checkout code
         uses: actions/checkout@v6
-      - run:  sudo /etc/init.d/mysql start
+      - run: unzip sql/mydb803-20260318.sql.zip
+      - run:  
+          sudo /etc/init.d/mysql start
+          mysql  -u$DB_USER -p$DB_PASSWORD -e "select now();"
+          mysql  -u$DB_USER -p$DB_PASSWORD -e "create database mydb803;"
+          mysql  -u$DB_USER -p$DB_PASSWORD -e "show databases;"
+          mysql  -u$DB_USER -p$DB_PASSWORD mydb803 < sql/mydb803-20260318.sql
+          mysql  -u$DB_USER -p$DB_PASSWORD -e "show tables;" mydb803
+          mysql  -u$DB_USER -p$DB_PASSWORD -e "SELECT * FROM euros WHERE id=15000;" mydb803
